@@ -1,0 +1,31 @@
+---
+import Reveal from "@/components/Reveal.tsx";
+
+const eras = [
+  { era: 'The Internet Era', anchor: 'TCP/IP',   desc: 'Information became open and borderless.', accent: false },
+  { era: 'The Web3 Era',     anchor: 'Ethereum', desc: 'Money became open and borderless.',         accent: false },
+  { era: 'The AI Era',       anchor: 'OpenxAI',  desc: 'Intelligence becomes open and borderless.', accent: true  },
+];
+---
+<section class="px-4 md:px-6 py-12 bg-brand-bg">
+  <Reveal client:visible className="max-w-7xl mx-auto rounded-4xl bg-brand-panel text-brand-ink px-6 md:px-16 py-20 md:py-28">
+    <div class="max-w-4xl mb-16">
+      <h2 class="font-medium leading-[1.05] tracking-[-0.02em] text-3xl md:text-5xl lg:text-6xl">
+        Technologies and protocols<br/>that changed the world
+      </h2>
+      <p class="mt-6 text-lg text-brand-ink-3 max-w-2xl">
+        Information, value, and now intelligence are transformed by open networks.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      {eras.map((e) => (
+        <article class={`relative p-8 rounded-3xl ${e.accent ? 'bg-brand-orange text-white' : 'bg-brand-panel-2 text-brand-ink'} transition-all`}>
+          <p class={`text-xs uppercase tracking-[0.18em] mb-6 ${e.accent ? 'text-white/80' : 'text-brand-ink-3'}`}>{e.era}</p>
+          <h3 class="text-3xl md:text-4xl font-medium tracking-[-0.01em]">{e.anchor}</h3>
+          <p class={`mt-4 text-sm md:text-base ${e.accent ? 'text-white/85' : 'text-brand-ink-3'}`}>{e.desc}</p>
+        </article>
+      ))}
+    </div>
+  </Reveal>
+</section>

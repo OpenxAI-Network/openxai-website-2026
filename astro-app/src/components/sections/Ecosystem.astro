@@ -1,0 +1,42 @@
+---
+import Reveal from "@/components/Reveal.tsx";
+
+const blocks = [
+  {
+    title: 'Permissionless & Borderless',
+    desc:  'Open access, data ownership, and censorship resistance built into the protocol.',
+  },
+  {
+    title: 'Smart Contracts & Tokenization',
+    desc:  'On-chain assets, payments, and royalties without intermediaries.',
+  },
+  {
+    title: 'Decentralized Infrastructure',
+    desc:  'Peer-to-peer compute, storage, and networking — resilient by design.',
+  },
+  {
+    title: 'Community Governed, Not Corporate Owned',
+    desc:  'No VCs, no CEOs. Open proposals, transparent treasury, DAO-driven funding, and a roadmap shaped entirely by the community.',
+  },
+];
+---
+<section class="px-4 md:px-6 py-12 bg-brand-bg">
+  <Reveal client:visible className="max-w-7xl mx-auto rounded-4xl bg-brand-panel text-brand-ink px-6 md:px-16 py-20 md:py-28">
+    <p class="text-xs uppercase tracking-[0.25em] text-brand-ink-3 mb-8">Permissionless AI Ecosystem</p>
+    <h2 class="font-medium leading-[1.05] tracking-[-0.02em] text-3xl md:text-5xl lg:text-6xl text-brand-ink max-w-4xl">
+      A living network where AI belongs to everyone &mdash; and can't be stopped by anyone.
+    </h2>
+    <p class="mt-6 text-lg text-brand-ink-3 max-w-3xl">
+      Powered by collective infrastructure, guided by its community, and enforced by code.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-16">
+      {blocks.map((b) => (
+        <article class="p-8 rounded-3xl bg-brand-panel-2">
+          <h3 class="text-xl md:text-2xl font-medium tracking-[-0.01em] text-brand-ink">{b.title}</h3>
+          <p class="mt-4 text-brand-ink-3 leading-relaxed">{b.desc}</p>
+        </article>
+      ))}
+    </div>
+  </Reveal>
+</section>

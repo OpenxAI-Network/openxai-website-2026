@@ -1,0 +1,82 @@
+---
+const cols = [
+  {
+    title: 'OpenxAI',
+    links: [
+      { label: 'What is OpenxAI?',     href: '#vision' },
+      { label: 'Why Permissionless AI', href: 'https://medium.com/openxai/why-permissionless-ai' },
+      { label: 'Use Cases',             href: '#use-cases' },
+      { label: 'Roadmap',               href: '#roadmap' },
+      { label: 'Join the Team',         href: 'https://community.openxai.org/careers' },
+      { label: 'Brand Kit',             href: 'https://drive.google.com/drive/folders/1JVoMn1LdazzUV6ASFaCqSy_WT1qtAqfg' },
+      { label: 'FAQ',                   href: '#faq' },
+    ],
+  },
+  {
+    title: 'Build & Tools',
+    links: [
+      { label: 'xStudio',              href: 'https://studio.openxai.org' },
+      { label: 'Marketplace (Coming Soon)', href: '#' },
+      { label: 'Dashboard',            href: 'https://dashboard.openxai.org/dashboard' },
+      { label: 'Compute Network',      href: 'https://dashboard.openxai.org/compute' },
+      { label: 'Docs',                 href: 'https://docs.openxai.org' },
+      { label: 'Github',               href: 'https://github.com/OpenxAI-Network' },
+    ],
+  },
+  {
+    title: 'Breakthroughs',
+    links: [
+      { label: 'Tokenized Intelligence',  href: '#tokenized' },
+      { label: 'Cost & Energy Reduction', href: '#cost' },
+      { label: 'AI Privacy',              href: '#privacy' },
+      { label: 'Censorship Resistance',   href: '#censorship' },
+      { label: 'OwnAI. Own Everything.',  href: '#ownai' },
+    ],
+  },
+  {
+    title: 'Community',
+    links: [
+      { label: 'Global Hack Node',      href: 'https://blockseblock.com/hackathon_details/OpenxAI%20Hack%20Node%20Global' },
+      { label: 'Earn, Stake & Secure',  href: 'https://dashboard.openxai.org/earn' },
+      { label: 'DAO & Governance',      href: 'https://dashboard.openxai.org/governance' },
+      { label: 'Contribute & Engage',   href: 'https://discord.gg/pBw389cbtq' },
+      { label: 'Join as Ambassador',    href: 'https://airtable.com/appQxtupr9loCdiWX/shrWSJDA2AbwzbAT6' },
+    ],
+  },
+];
+
+const social = [
+  { label: 'Discord',  href: 'https://discord.gg/pBw389cbtq' },
+  { label: 'X',        href: 'https://x.com/openxai' },
+  { label: 'Github',   href: 'https://github.com/OpenxAI-Network' },
+  { label: 'Medium',   href: 'https://medium.com/openxai' },
+  { label: 'Telegram', href: 'https://t.me/openxai' },
+];
+---
+<footer class="px-4 md:px-6 py-12 bg-brand-bg">
+  <div class="max-w-7xl mx-auto rounded-4xl bg-brand-ink-2 px-6 md:px-16 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+      {cols.map((col) => (
+        <div>
+          <h4 class="text-sm font-semibold text-brand-fg mb-4">{col.title}</h4>
+          <ul class="space-y-3">
+            {col.links.map(({ label, href }) => (
+              <li>
+                <a href={href} class="text-sm text-brand-fg/55 hover:text-brand-fg transition-colors">{label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <p class="text-xs text-brand-fg/45">&copy; 2026 OpenxAI &mdash; All rights reserved.</p>
+      <ul class="flex gap-5">
+        {social.map(({ label, href }) => (
+          <li><a href={href} target="_blank" rel="noopener" class="text-xs text-brand-fg/55 hover:text-brand-fg transition-colors">{label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</footer>

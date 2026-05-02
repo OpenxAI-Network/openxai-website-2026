@@ -1,0 +1,23 @@
+---
+import CounterAnimation from "@/components/CounterAnimation.tsx";
+import Reveal from "@/components/Reveal.tsx";
+
+const stats = [
+  { v: 1710, label: 'Total Applicants across all Hack Nodes' },
+  { v: 44,   label: 'Total Projects Across all Hack Nodes' },
+  { v: 36,   label: 'Community Events Globally' },
+  { v: 4,    label: 'Active Hack Nodes, Countries/Regions' },
+];
+---
+<section class="px-4 md:px-6 py-12 bg-brand-bg">
+  <Reveal client:visible className="max-w-7xl mx-auto rounded-4xl bg-brand-blue px-6 md:px-16 py-20 md:py-24 grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-8">
+    {stats.map((s) => (
+      <div class="text-center md:text-left">
+        <div class="text-5xl md:text-7xl font-medium tracking-[-0.02em] text-white">
+          <CounterAnimation client:visible to={s.v} />
+        </div>
+        <p class="mt-3 text-xs md:text-sm text-white/85 max-w-[18rem]">{s.label}</p>
+      </div>
+    ))}
+  </Reveal>
+</section>

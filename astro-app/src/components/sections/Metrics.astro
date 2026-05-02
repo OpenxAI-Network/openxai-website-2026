@@ -1,0 +1,23 @@
+---
+import CounterAnimation from "@/components/CounterAnimation.tsx";
+import Reveal from "@/components/Reveal.tsx";
+
+const metrics = [
+  { value: 36,   suffix: '',   label: 'Cities & Regions' },
+  { value: 250,  suffix: 'ms', label: 'Tokenization Speed' },
+  { value: 80,   suffix: '%',  label: 'Lower Compute Cost' },
+  { value: 1710, suffix: '',   label: 'Accelerator Applicants' },
+];
+---
+<section class="px-4 md:px-6 py-12 bg-brand-bg">
+  <Reveal client:visible className="max-w-7xl mx-auto rounded-4xl bg-brand-ink-2 px-6 md:px-16 py-16 md:py-24 grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-8">
+    {metrics.map((m) => (
+      <div class="text-center md:text-left">
+        <div class="text-5xl md:text-7xl font-medium tracking-[-0.02em] text-brand-fg">
+          <CounterAnimation client:visible to={m.value} suffix={m.suffix} />
+        </div>
+        <p class="mt-3 text-sm md:text-base text-brand-fg/60">{m.label}</p>
+      </div>
+    ))}
+  </Reveal>
+</section>

@@ -1,0 +1,28 @@
+---
+import Reveal from "@/components/Reveal.tsx";
+---
+<section class="px-4 md:px-6 py-12 bg-brand-bg">
+  <Reveal client:visible className="relative max-w-7xl mx-auto rounded-4xl bg-brand-ink px-6 md:px-16 py-24 md:py-32 overflow-hidden">
+    <div
+      class="absolute inset-0 -z-0 opacity-50"
+      style="background:
+        radial-gradient(ellipse 60% 50% at 50% 50%, rgba(252,102,48,0.35), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0,91,255,0.25), transparent 60%);"
+    />
+    <div class="relative text-center">
+      <h2 class="font-medium leading-[1.05] tracking-[-0.02em] text-3xl md:text-5xl lg:text-6xl text-brand-fg max-w-4xl mx-auto">
+        Launch Your Next AI Company in 5 Minutes,<br/>Anywhere in the World
+      </h2>
+      <p class="mt-8 text-lg md:text-xl text-brand-fg/75 max-w-2xl mx-auto">
+        Build, contribute, and grow with the first open network for intelligence.
+        Whether you are a student, developer, researcher, or partner, there is a place for you in OpenxAI.
+      </p>
+      <a
+        href="https://community.openxai.org"
+        class="inline-block mt-10 px-8 py-4 rounded-full bg-brand-orange text-white font-semibold hover:bg-brand-orange/90 transition-colors"
+      >
+        Join Now
+      </a>
+    </div>
+  </Reveal>
+</section>

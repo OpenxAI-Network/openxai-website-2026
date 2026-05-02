@@ -1,0 +1,52 @@
+---
+import Reveal from "@/components/Reveal.tsx";
+
+const layers = [
+  'On-chain execution', 'Applications', 'AI Infra',
+  'Virtualization', 'Dependencies', 'Operating System',
+];
+
+const benefits = [
+  { title: 'Modularity & Upgradability',     leadsTo: 'Faster Upgrades' },
+  { title: 'Tokenization & Programmability', leadsTo: 'Gas Optimized' },
+  { title: 'Scalability & Performance',      leadsTo: 'Higher Throughput' },
+];
+---
+<section class="px-4 md:px-6 py-12 bg-brand-bg">
+  <Reveal client:visible className="max-w-7xl mx-auto rounded-4xl bg-brand-ink-2 px-6 md:px-16 py-20 md:py-28">
+    <h2 class="font-medium leading-[1.05] tracking-[-0.02em] text-3xl md:text-5xl lg:text-6xl text-brand-fg max-w-5xl">
+      End-to-End Permissionless AI Stack
+      <span class="text-brand-fg/45">(Hardware to On-Chain AI)</span>
+    </h2>
+    <p class="mt-6 text-lg text-brand-fg/65 max-w-3xl">
+      Infrastructure and applications combined into one open network for intelligence.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-16">
+      <div class="md:col-span-1 rounded-3xl bg-brand-bg ring-1 ring-white/10 p-6">
+        <p class="text-[11px] uppercase tracking-[0.18em] text-brand-fg/55 mb-4">Stack</p>
+        <ul class="space-y-2.5">
+          {layers.map((l) => (
+            <li class="flex items-center gap-3 py-2.5 px-4 rounded-xl bg-white/[0.04] text-sm text-brand-fg/85">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+              {l}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="md:col-span-2 grid grid-cols-1 gap-3.5">
+        {benefits.map((b) => (
+          <article class="rounded-3xl bg-brand-bg ring-1 ring-white/10 p-6 flex items-center justify-between gap-6">
+            <div class="flex items-center gap-4">
+              <span class="w-9 h-9 rounded-full border border-brand-orange/40 text-brand-orange flex items-center justify-center text-lg" aria-hidden="true">×</span>
+              <h3 class="text-base md:text-lg font-medium text-brand-fg">{b.title}</h3>
+            </div>
+            <span class="text-sm text-brand-fg/40 hidden sm:inline" aria-hidden="true">→</span>
+            <p class="text-sm md:text-base text-brand-fg font-semibold whitespace-nowrap">{b.leadsTo}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </Reveal>
+</section>

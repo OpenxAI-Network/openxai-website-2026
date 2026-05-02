@@ -1,0 +1,30 @@
+---
+import Reveal from "@/components/Reveal.tsx";
+
+const products = [
+  { name: 'X Engine',     desc: 'Open compute runtime for permissionless AI.' },
+  { name: 'X Studio',     desc: 'Build, train, host, and ship AI apps end-to-end.' },
+  { name: 'Playground',   desc: 'Experiment with models, agents, and datasets.' },
+  { name: 'Marketplace',  desc: 'Trade tokenized models, agents, and compute.' },
+];
+---
+<section class="px-4 md:px-6 py-12 bg-brand-bg">
+  <Reveal client:visible className="max-w-7xl mx-auto rounded-4xl bg-brand-cream text-brand-ink px-6 md:px-16 py-20 md:py-28">
+    <p class="text-xs uppercase tracking-[0.25em] text-brand-ink/55 mb-8">Core Product</p>
+    <h2 class="font-medium leading-[1.05] tracking-[-0.02em] text-3xl md:text-5xl lg:text-6xl max-w-5xl">
+      A unified platform to build, train, host, and experiment with AI &mdash; then commercialize it at scale.
+    </h2>
+    <p class="mt-6 text-lg text-brand-ink/70 max-w-3xl">
+      End-to-end tools that turn ideas into permissionless AI apps, tokenized agents, and on-chain services.
+    </p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
+      {products.map((p) => (
+        <article class="rounded-3xl bg-white p-6 hover:shadow-lg transition-shadow">
+          <h3 class="text-xl md:text-2xl font-medium tracking-[-0.01em]">{p.name}</h3>
+          <p class="mt-3 text-sm text-brand-ink/60">{p.desc}</p>
+        </article>
+      ))}
+    </div>
+  </Reveal>
+</section>

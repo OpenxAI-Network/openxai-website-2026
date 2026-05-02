@@ -1,0 +1,3 @@
+import{t as e}from"./rolldown-runtime.uXsZyavj.mjs";function t(e,t){return{description:`OpenxAI Network is the first P2P permissionless AI protocol. What Bitcoin did for money, OpenxAI does for intelligence. Anyone anywhere can launch own and monetize AI apps agents and services fully on chain. No banks. No corporations. No gatekeepers.
+`,favicon:`/assets/XU7QerOiYXuu9oxVRE0JkFTpM.png`,robots:`max-image-preview:large`,socialImage:`/assets/RrhEWq2BQRKkBnODwR3mSnow0w.png`,title:`OpenxAI Network | The Open and Borderless AI Network`}}var n=e((()=>{}));export{t as n,n as t};
+//# sourceMappingURL=shared-lib.DhP3dX6K.mjs.map
