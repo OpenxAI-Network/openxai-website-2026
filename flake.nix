@@ -8,6 +8,5 @@
     inputs:
     inputs.xnode-builders.language.auto {
       src = ./.;
-      framework = "astro-node-noext";
     };
 }
