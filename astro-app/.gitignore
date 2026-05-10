@@ -1,9 +1,0 @@
-node_modules
-dist
-.astro
-.env
-.env.local
-_capture/screenshots
-_capture/dom
-_capture/assets
-_capture/pixmatch-diff
