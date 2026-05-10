@@ -360,6 +360,10 @@
     },
     "root": {
       "inputs": {
+        "nixpkgs": [
+          "xnode-builders",
+          "nixpkgs"
+        ],
         "xnode-builders": "xnode-builders"
       }
     },
