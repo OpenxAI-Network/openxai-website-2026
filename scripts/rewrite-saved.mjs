@@ -168,6 +168,16 @@ for (const host of ['streamlined-plans-270737.framer.app']) {
 html = html.replace(/<script[^>]*\ssrc="\.?\/?"[^>]*>\s*<\/script>/g, '');
 html = html.replace(/<script[^>]*\ssrc="\.?\/?"[^>]*>/g, '');
 
+// 11) Framer CMS static-host shim. CMS fetches `X.framercms?range=S-E` expecting
+//     the server to return those bytes; static hosts (Vercel/nginx) ignore the
+//     query and return the whole file -> "Unexpected response length" / no CMS.
+//     Shim fetch to pull the full file once and slice client-side so CMS renders
+//     on ANY static host. Only injected on pages that actually use a collection.
+if (html.includes('.framercms')) {
+  const shim = '<script>(function(){var f=window.fetch.bind(window);window.fetch=function(u,o){var s=(u&&u.url)?u.url:String(u);if(s.indexOf(".framercms?range=")>-1){var p=s.split("?range=");var r=p[1].split("&")[0].split("-");var a=parseInt(r[0],10),b=parseInt(r[1],10);return f(p[0]).then(function(x){return x.arrayBuffer();}).then(function(buf){return new Response(buf.slice(a,b+1),{status:200,headers:{"content-type":"application/octet-stream"}});});}return f(u,o);};})();</script>';
+  html = html.replace(/(<head[^>]*>)/i, `$1${shim}`);
+}
+
 await mkdir(dirname(DEST), { recursive: true });
 await writeFile(DEST, html);
 
