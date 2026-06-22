@@ -77,6 +77,14 @@ for (const f of walk(ROOT)) {
     'data:,',
   );
 
+  // 6. Framer CMS loader: `new URL('./x.framercms', '/assets/y.js')`.
+  //    Step 1 made the base root-relative — an INVALID `new URL` base
+  //    ("Invalid base URL" whitescreen). Re-absolutize against runtime origin.
+  src = src.replace(
+    /(new URL\(`\.\/[^`]+\.framercms`,\s*)`\/assets\//g,
+    '$1`${location.origin}/assets/',
+  );
+
   if (src !== before) {
     await writeFile(f, src);
     filesPatched++;

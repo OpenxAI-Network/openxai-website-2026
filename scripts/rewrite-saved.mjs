@@ -125,6 +125,20 @@ html = html.replace(
   '',
 );
 
+// 5a) strip Framer preview editor bootstrap (only in *.framer.app preview saves)
+//     script_main loads the editor canvas/editorbar — 404s as a standalone deploy
+html = html.replace(/<script[^>]*script_main[^>]*>\s*<\/script>/g, '');
+html = html.replace(/<script[^>]*script_main[^>]*>/g, '');
+
+// 5a2) strip Framer event/telemetry scripts whose URL was scrubbed to an empty/dot
+//      src (e.g. `<script src="./" data-fid=...>`) — they refetch the page as HTML
+html = html.replace(/<script[^>]*\ssrc="\.?\/?"[^>]*>\s*<\/script>/g, '');
+html = html.replace(/<script[^>]*\ssrc="\.?\/?"[^>]*>/g, '');
+
+// 5b) strip browser-extension junk captured during the save (chrome-extension://)
+html = html.replace(/<link[^>]*chrome-extension:\/\/[^>]*>/g, '');
+html = html.replace(/["'][^"']*chrome-extension:\/\/[^"']*["']/g, '""');
+
 // 6) cosmetic strips --------------------------------------------------------
 html = html.replace(/<meta\s+name="generator"\s+content="Framer[^"]*"\s*\/?>/g, '');
 html = html.replace(/\s+data-framer-(name|component|appear-id|search-index)="[^"]*"/g, '');
@@ -139,6 +153,20 @@ html = html.replace(
   new RegExp(`${filesBase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/[^"'\\s)]+`, 'g'),
   '',
 );
+
+// 8) normalize malformed asset prefixes ('.//assets/', './assets/') to root-absolute
+html = html.replace(/\.{1,2}\/+assets\//g, '/assets/');
+
+// 9) strip Framer-preview-project domains so internal nav links resolve locally
+//    (Ashton's redesign project; canonical/og already point at openxai.org)
+for (const host of ['streamlined-plans-270737.framer.app']) {
+  html = html.replace(new RegExp(`https?:\\/\\/${host.replace(/\./g, '\\.')}`, 'g'), '');
+}
+
+// 10) FINAL: drop scripts left with an empty/dot src by the strips above — they
+//     refetch the page HTML and throw "Unexpected token '<'". Must run last.
+html = html.replace(/<script[^>]*\ssrc="\.?\/?"[^>]*>\s*<\/script>/g, '');
+html = html.replace(/<script[^>]*\ssrc="\.?\/?"[^>]*>/g, '');
 
 await mkdir(dirname(DEST), { recursive: true });
 await writeFile(DEST, html);

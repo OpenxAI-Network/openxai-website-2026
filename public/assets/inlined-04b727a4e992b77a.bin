@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://./pages/components/tooltip.css"],"names":[],"mappings":"AAAA;IACI,eAAe;IACf,eAAe;IACf,iBAAiB;IACjB,WAAW;IACX,YAAY;AAChB","sourcesContent":[".BDTLL_status {\n    cursor: pointer;\n    display: inline;\n    margin-right: 3px;\n    width: 16px;\n    height: 16px;\n}"],"sourceRoot":""}

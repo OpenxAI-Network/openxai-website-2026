@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-Variable.woff2') format('woff2-variations');
+  src: url('/assets/GeneralSans-Variable.woff2') format('woff2-variations');
   font-weight: 200 700;
   font-style: normal;
   font-display: swap;
