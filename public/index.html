@@ -597,4 +597,23 @@
     <!-- End of bodyEnd -->
 
 
-<iframe id="__framer-editorbar" src="data:application/javascript," aria-hidden="true" allow="autoplay" tabindex="-1" class="status_hidden"></iframe></body></html>
+<iframe id="__framer-editorbar" src="data:application/javascript," aria-hidden="true" allow="autoplay" tabindex="-1" class="status_hidden"></iframe><style id="openxai-cta-style">form.framer-clyoq9{display:none!important}div[data-openxai-cta]{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px}</style><script>(function(){
+var COMM="https://community.openxai.org",MED="https://medium.com/openxai";
+var SO="AI news and insights from OpenxAI.";
+var SN="Become an OpenxAI Guardian — join the community for daily tasks and rewards, or follow our Medium blog for news and announcements.";
+var PILL="display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;border-radius:37px;font:500 16px/1 'Neue Montreal Medium',sans-serif;text-decoration:none";
+function mk(){
+  var w=document.createElement("div");w.setAttribute("data-openxai-cta","1");
+  var a=document.createElement("a");a.href=COMM;a.target="_blank";a.rel="noopener";a.style.cssText=PILL+";background:#fff;color:#0d0d0d";a.textContent="Join the Community";
+  var c=document.createElement("a");c.href=MED;c.target="_blank";c.rel="noopener";c.style.cssText=PILL+";background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff";c.textContent="Follow on Medium";
+  w.appendChild(a);w.appendChild(c);return w;
+}
+function ap(){
+  var f=document.querySelector("form.framer-clyoq9");
+  if(f&&f.parentNode&&!f.parentNode.querySelector("[data-openxai-cta]")){f.parentNode.insertBefore(mk(),f.nextSibling);}
+  var hs=document.querySelectorAll("h3");for(var i=0;i<hs.length;i++){if(hs[i].textContent.trim()===SO){hs[i].textContent=SN;}}
+}
+try{new MutationObserver(ap).observe(document.documentElement,{childList:true,subtree:true});}catch(e){}
+if(document.readyState!=="loading")ap();else document.addEventListener("DOMContentLoaded",ap);
+setTimeout(ap,1200);setTimeout(ap,2500);setTimeout(ap,4000);
+})();</script></body></html>
