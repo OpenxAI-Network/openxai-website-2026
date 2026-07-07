@@ -130,6 +130,10 @@ html = html.replace(
 html = html.replace(/<script[^>]*script_main[^>]*>\s*<\/script>/g, '');
 html = html.replace(/<script[^>]*script_main[^>]*>/g, '');
 
+// 5a1) remove the DexScreener $OPENX nav price ticker (code-component link).
+//      script_main (stripped above) was the only thing fetching api.dexscreener.com.
+html = html.replace(/<a\b[^>]*dexscreener\.com\/base[\s\S]*?<\/a>/g, '');
+
 // 5a2) strip Framer event/telemetry scripts whose URL was scrubbed to an empty/dot
 //      src (e.g. `<script src="./" data-fid=...>`) — they refetch the page as HTML
 html = html.replace(/<script[^>]*\ssrc="\.?\/?"[^>]*>\s*<\/script>/g, '');
